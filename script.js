@@ -130,14 +130,16 @@ const button = {
 	},
 
 	pressBackspace: function(){
-		if(inputNumber.get().unformatted == ""){
-			inputNumber.add(numberHistory.popNumber());
-			formula.remove(inputNumber.get().formatted.length + 1);
+		if(formula.get() != ""){
+			if(inputNumber.get().unformatted == ""){
+				inputNumber.add(numberHistory.popNumber());
+				formula.remove(inputNumber.get().formatted.length + 1);
+			}
+			else{
+				inputNumber.remove();
+			}
+			updateView.output(formula.get() + inputNumber.get().formatted);
 		}
-		else{
-			inputNumber.remove();
-		}
-		updateView.output(formula.get() + inputNumber.get().formatted);
 	},
 
 	pressEqual: function(){
