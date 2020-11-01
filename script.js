@@ -130,7 +130,7 @@ const button = {
 	},
 
 	pressBackspace: function(){
-		if(formula.get() != ""){
+		if(formula.get() != "" && inputNumber.get().unformatted != ""){
 			if(inputNumber.get().unformatted == ""){
 				inputNumber.add(numberHistory.popNumber());
 				formula.remove(inputNumber.get().formatted.length + 1);
